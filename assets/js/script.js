@@ -161,9 +161,104 @@ console.log('Aleatório de 1 a 10:', Math.floor(Math.random() * (10 - 1 + 1)) + 
 let title = document.getElementById('titulo')
 // window.alert(title.innerHTML)
 console.log(title)
+
 let novotitulo = 'I love JS <3'
 title.innerHTML = novotitulo;
 
 function handleChangeUser(event){
     console.log(event.target.value)
 }
+
+//---------------------------------------------------------------------------------------
+// AULA 25/04
+
+// SELECIONAR ELEMENTOS COM A MESMA CLASSE
+
+let textdefault = document.getElementsByClassName('text-default'); // Retorna um vetor com os elementos 
+console.log(textdefault);
+
+//Seleciona elementos por nome da tag
+let tagElement = document.getElementsByTagName('h1');
+console.log(tagElement);
+
+//Seleciona elementos por valor do atributo de um nome da tag
+let nameArtElement = document.getElementsByName('section') // RETORNO TURDO EM UM VETOR COM ELEMENTO
+console.log(nameArtElement);
+
+let paragrafo = document.querySelector('p.text-default'); //RETORNAR O ELEMENTO UNICO E PRIMEIRO ELEMENTO QUE ELE ENCONTRAR
+console.log(paragrafo);
+
+let paragrafos = document.querySelectorAll('p'); //RETORNA TODOS OS ELEMENTOS ENCONTRADOS
+console.log(paragrafos)
+
+
+//MUDANDO A COR USANDO CLASSE
+let tituloVermelho = document.querySelector("h1.vermelho")
+tituloVermelho.classList.remove('vermelho')
+tituloVermelho.classList.add('verde')
+
+//Aumentando a fonte
+tituloVermelho.style.fontSize = '60px';
+tituloVermelho.style.backgroundColor = '#000';
+tituloVermelho.style.display = 'flex';
+tituloVermelho.style.justifyContent = 'center';
+tituloVermelho.style.height = '100px';
+
+
+//-----------------------------------------------------
+//Pegar botão
+let btnAumentar = document.querySelector('#btnAumentar')
+console.log(btnAumentar);
+
+//EVENTO
+btnAumentar.addEventListener('click', function (event){
+    console.log("aii")
+    let paragrafo = document.querySelector("p.text-default") 
+    console.log(paragrafo)
+    let fontSizeAtual = getComputedStyle(paragrafo).fontSize;//PEGAR VALORES DE ESTILO DE UM ELEMENTO
+    fontSizeAtual = parseFloat(fontSizeAtual); // CONVERTE STRING PARA NUMERO DECIMAL
+    fontSizeAtual +=1 //INCREMENTA UM VALOR
+    console.log(fontSizeAtual);
+    paragrafo.style.fontSize = `${fontSizeAtual}px`;
+})
+
+//PEGANDO O BOTÂO DIMINUIR
+let btnDiminuir = document.querySelector('#btnDiminuir')
+console.log(btnDiminuir)
+
+//EVENTO
+btnDiminuir.addEventListener('click', function (event){
+    console.log("aii")
+    let paragrafo = document.querySelector("p.text-default") 
+    console.log(paragrafo)
+    let fontSizeAtual = getComputedStyle(paragrafo).fontSize;//PEGAR VALORES DE ESTILO DE UM ELEMENTO
+    fontSizeAtual = parseFloat(fontSizeAtual); // CONVERTE STRING PARA NUMERO DECIMAL
+    fontSizeAtual -=1 //INCREMENTA UM VALOR
+    console.log(fontSizeAtual);
+    paragrafo.style.fontSize = `${fontSizeAtual}px`;
+})
+
+/* ----------------------------------------------------------- */
+
+// PEGANDO O BOTAO
+let btnresult = document.querySelector('#btnresult')
+console.log(btnresult)
+
+//EVENTO
+
+btnresult.addEventListener('click', function(event){
+    console.log('aa')
+//btn1
+let num1 = document.querySelector('#info1')
+console.log(num1.value)
+//btn2
+let num2 = document.querySelector('#info2')
+console.log(num2.value)
+
+let valnum1 = parseFloat(num1.value)
+let valnum2 = parseFloat(num2.value)
+let resultfinal = valnum1 + valnum2
+
+let p = document.querySelector('#result')
+p.innerHTML = resultfinal
+})
